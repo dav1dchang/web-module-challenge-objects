@@ -24,8 +24,23 @@ Your method should accept:
 and should return a number. 
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
+ //creating a new item as an example 
+  const pizza = {
+  name: "Pizza",
+  price: 12,
+  category: "Lunch",
 
+  discount: function(discountType) {
 
+    if(discountType === "teacher") {
+      return this.price - (this.price * 0.25) + ' is the price of the item after the discount'
+    } else if(discountType === "student") {
+      return this.price - (this.price * .10) + ' is this price of the new item after the discount'
+    }
+  }//discount
+}//pizza
+
+console.log(pizza.discount("teacher"));//invoking function with discount type as teacher
 
 ///////////////Reviews (MVP)///////////////////
 
@@ -41,8 +56,10 @@ const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and
 
 /* Task 3: Console.log just Julius' feedback */
 
+console.log(reviews[5].feedback);
 
 /* Task 4: Add a new rating with your (fictitious) opinions of the restaurant in the same format as the reviews above. */
+
 
 
 /* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
@@ -60,9 +77,11 @@ and should return a string in the format `{name} gave the restaurant a {rating},
  * it will return `Daniela gave the restaurant a 5 star review and their feedback was: Beautiful atmosphere and wonderful vegan options!`
 */
 function getReviewByIndex(reviews, index) {
-    /* code here */
-  }
-  
+   return `${reviews[index].name} gave the restaurant a ${reviews[index].rating} star review and their feedback was: ${reviews[index].feedback}`
+
+  }//function
+
+  console.log(getReviewByIndex(reviews, 0))
 
 /* Task 7: Write a function to get information about the most recent review called `getLastReview`
 
